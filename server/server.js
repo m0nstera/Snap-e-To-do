@@ -22,8 +22,6 @@ app.get('/Todos', (req, res) => {
 // INSERT -- one todo
 app.post("/Todos/", (req, res) => {
   let body = req.body;
-  // let item = req.body.item;
-  // let boolean = req.body.completed;
   insertNewTodo(body, (err, results) => {
     if (err) {
       res.sendStatus(404, err);
