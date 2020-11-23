@@ -1,5 +1,6 @@
 import React from 'react';
-import query from '../lib/routes'
+import query from '../lib/routes';
+import TodoList from '../components/TodoList.jsx';
 import Container from 'react-bootstrap/Container';
 
 
@@ -32,7 +33,9 @@ class App extends React.Component {
       <div>
         <Container className="to-do-container">
           <div>
-            <h1>To-do List</h1>
+            <h1>To-do Items</h1>
+          <TodoList
+            todoList={todoList}/>
           </div>
         </Container>
       </div>
