@@ -1,30 +1,36 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
+const cors = require('cors');
+
 const {
-    selectAllTodos, selectOneTodo, insertNewTodo, updateTodo, removeTodo
+    selectAllTodos, insertNewTodo, updateTodo, removeTodo
   } = require('../database/queries');
 
 app.use(express.static('../client/dist'));
 app.use(express.json()); // Alternative to BodyParser
+app.use(cors());
 
-// GET -- full list of todos
-app.get('/Todos', (req, res) => {
+// GET -- full list of todo
+app.get('/todos', (req, res) => {
+    console.log("HI KYM");
     selectAllTodos((err, results) => {
       if (err) {
-        res.sendStatus(404, err);
+        console.log("ERR FROM SERVER: ", err);
+        res.status(400);
       } else {
-        res.send(results);
+        console.log("SUCCESS FROM SERVER");
+        res.status(200).send(results);
       }
     });
   });
 
 // INSERT -- one todo
-app.post("/Todos/", (req, res) => {
+app.post("/todos", (req, res) => {
   let body = req.body;
   insertNewTodo(body, (err, results) => {
     if (err) {
-      res.sendStatus(404, err);
+      res.sendStatus(404);
     } else {
       res.sendStatus(201);
     }
@@ -32,11 +38,11 @@ app.post("/Todos/", (req, res) => {
 });
 
 // UPDATE -- one todo
-app.put("/Todos/:id", (req, res) => {
+app.put("/todos/:id", (req, res) => {
     let id = req.params.id;
     updateTodo(id, (err, results) => {
       if (err) {
-        res.sendStatus(404, err);
+        res.sendStatus(404);
       } else {
         res.sendStatus(201);
       }
@@ -45,11 +51,11 @@ app.put("/Todos/:id", (req, res) => {
 
 
 // DELETE -- one todo
-app.delete("/Todos/:id", (req, res) => {
+app.delete("/todos/:id", (req, res) => {
   let id = req.params.id;
   removeTodo(id, (err, results) => {
     if (err) {
-      res.sendStatus(404, err);
+      res.sendStatus(404);
     } else {
       res.send(results);
     }

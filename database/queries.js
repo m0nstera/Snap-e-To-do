@@ -1,15 +1,13 @@
-// brew services start postgresql
-// createdb Todos
-// Test API in Postman
 const { connection } = require('./connection.js');
-
 connection.connect();
 
 const selectAllTodos = (cb) => {
-  connection.query("SELECT * FROM Todos", (err, results) => {
+  connection.query(`SELECT * FROM public."snapTodos"`, (err, results) => {
     if (err) {
+      console.log("PROBLEM FETCHING TODOS");
       cb(err, null);
     } else {
+      console.log("SUCCESSSSSSSS");
       cb(null, results);
     }
   });
@@ -17,7 +15,7 @@ const selectAllTodos = (cb) => {
 
 const insertNewTodo = (body, cb) => {
   // console.log('BODY ', body);
-  connection.query(`INSERT into Todos (id, item, completed) values(${body.id}, ${body.item}, ${body.completed})`, (err, results) => {
+  connection.query(`INSERT into public."snapTodos" (item) values(${body.item})`, (err, results) => {
     if (err) {
       cb(err, null);
     } else {
@@ -27,7 +25,7 @@ const insertNewTodo = (body, cb) => {
 };
 
 const updateTodo = (id, cb) => {
-  connection.query(`Update Todos SET completed = NOT completed WHERE id = ${id}`, (err, results) => {
+  connection.query(`Update public."snapTodos" SET completed = NOT completed WHERE id = ${id}`, (err, results) => {
     if (err) {
       cb(err, null);
     } else {
@@ -38,7 +36,7 @@ const updateTodo = (id, cb) => {
 
 const removeTodo = (todoObj, cb) => {
   let todoItem = todoObj.item;
-  connection.query(`DELETE FROM Todos WHERE item = ${todoItem}`, (err, results) => {
+  connection.query(`DELETE FROM public."snapTodos" WHERE item = ${todoItem}`, (err, results) => {
     if (err) {
       cb(err, null);
     } else {
@@ -47,4 +45,4 @@ const removeTodo = (todoObj, cb) => {
   });
 };
 
-// module.exports = {selectAllTodos, insertNewTodo, updateTodo, removeTodo};
+module.exports = {selectAllTodos, insertNewTodo, updateTodo, removeTodo};

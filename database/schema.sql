@@ -1,14 +1,19 @@
 CREATE SCHEMA myschema;
 
-DROP DATABASE [ IF EXISTS ] Todos;
+DROP DATABASE IF EXISTS todos;
 
-CREATE DATABASE Todos;
+CREATE DATABASE todos;
 
-CREATE TABLE [IF NOT EXISTS] "Todos"(
+CREATE TABLE IF NOT EXISTS "snapTodos"(
   "id" int NOT NULL GENERATED ALWAYS AS IDENTITY,
-  item varchar(100) NOT NULL,
+  "item" varchar(100) NOT NULL,
   "completed" BOOL DEFAULT 'f'
 );
+
+
+-- INSERT INTO public."snapTodos"(
+-- 	item, completed)
+-- 	VALUES ('Meet with Angie', 'f');
 
 -- Indexes:
 --     "items_pkey" PRIMARY KEY, btree (id)
