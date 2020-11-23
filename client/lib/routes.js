@@ -19,7 +19,7 @@ const putTodo = (id, cb) => {
 }
 
 const deleteTodo = (id, cb) => {
-  axios.delete(`http://localhost:3000/todos/${id}`})
+  axios.delete(`http://localhost:3000/todos/${id}`)
     .then((data) => cb(null, data))
     .catch((err) => cb(err, null));
 }
