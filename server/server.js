@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 3001;
+const PORT = 3000;
 const cors = require('cors');
 
 const {
@@ -13,13 +13,10 @@ app.use(cors());
 
 // GET -- full list of todo
 app.get('/todos', (req, res) => {
-    console.log("HI KYM");
     selectAllTodos((err, results) => {
       if (err) {
-        console.log("ERR FROM SERVER: ", err);
         res.status(400);
       } else {
-        console.log("SUCCESS FROM SERVER");
         res.status(200).send(results);
       }
     });

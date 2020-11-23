@@ -4,10 +4,8 @@ connection.connect();
 const selectAllTodos = (cb) => {
   connection.query(`SELECT * FROM public."snapTodos"`, (err, results) => {
     if (err) {
-      console.log("PROBLEM FETCHING TODOS");
       cb(err, null);
     } else {
-      console.log("SUCCESSSSSSSS");
       cb(null, results);
     }
   });
