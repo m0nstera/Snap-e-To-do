@@ -10,13 +10,24 @@ CREATE TABLE IF NOT EXISTS "snapTodos"(
   "completed" BOOL DEFAULT 'f'
 );
 
+-- ALTER TABLE public."snapTodos"
+-- ADD COLUMN completed_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP;
+
+-- CREATE OR REPLACE FUNCTION update_changetimestamp_column()
+-- RETURNS TRIGGER AS $$
+-- BEGIN
+--    NEW.completed_at = now();
+--    RETURN NEW;
+-- END;
+-- $$ language 'plpgsql';
+
+-- CREATE TRIGGER update_ab_changetimestamp BEFORE UPDATE
+--     ON public."snapTodos" FOR EACH ROW EXECUTE PROCEDURE
+--     update_changetimestamp_column();
 
 -- INSERT INTO public."snapTodos"(
 -- 	item, completed)
 -- 	VALUES ('Meet with Angie', 'f');
-
--- Indexes:
---     "items_pkey" PRIMARY KEY, btree (id)
 
 -- INSERT INTO TABLE_NAME (column1, column2, column3,...columnN)
 -- VALUES (value1, value2, value3,...valueN);
