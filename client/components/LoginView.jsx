@@ -1,22 +1,27 @@
 import React from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
+import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const LoginView = ({handleUsername, clickLogin}) => {
+const LoginView = ({username, handleUsername, clickLogin}) => {
 
   return (
-    <div className="login-container">
-    <InputGroup className="login-form">
-      <FormControl
-        placeholder="username"
-        aria-label="username"
-        onChange={handleUsername}
-        />
-    </InputGroup>
-    <Button className="login-btn" variant="outline-secondary"
-      onClick={clickLogin}>Login</Button>
-    </div>
+    <Form
+      className="login-container"
+      onSubmit={clickLogin}>
+      <Form.Group controlId="formBasicEmail">
+        <Form.Control required type="email"
+          placeholder="enter email"
+          maxLength="80"
+          aria-label="username input"
+          value={username}
+          onChange={handleUsername}/>
+      </Form.Group>
+      <Button variant="outline-secondary" type="submit">
+        Login
+      </Button>
+    </Form>
   )
 };
 
