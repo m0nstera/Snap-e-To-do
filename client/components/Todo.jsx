@@ -2,46 +2,30 @@ import React, {useState}  from 'react';
 import query from '../lib/routes';
 import DeleteBtn from './DeleteBtn.jsx';
 import Col from 'react-bootstrap/Col';
-import InputGroup from 'react-bootstrap/InputGroup';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
 
-const Todo = ({todo, handleDelete, handleComplete, handleChange, handleInput, item, checked, handleCheck}) => {
-  // const [clicked, setClick] = useState([]);
-  // const handleCheck = (e) => {
-  //   setClick({ ...clicked, [e.target.name]: e.target.checked });
-  // };
-  // const handleCheck = ({ target : { item, checked } }) => {
-  //   setClick({
-  //     ...clicked,
-  //     [item]: checked
-  //   })
-  // }
-  // const handleShow = (item) => {
-  //   setClick(item);
-  // };
+const Todo = ({todo, handleDelete, handleComplete}) => {
+
 
   return (
     <div>
-        <Row>
+        <Row
+        xs={12} md={8} lg={7}
+        className="li-row">
           <Col>
-            <ListGroup.Item>
+            <li className="list-item">
             <Form.Check
               type="checkbox"
               id={todo.id}
               label={todo.item}
               name={todo.item}
-              value={todo.id}
+              value={todo.item}
               onClick={handleComplete}
-              onChange={handleCheck}
-              checked={checked}
-              // onChange={handleInput}
-              // onChange={e => onChange(e.target.checked)}
-              // checked={clicked[todo.item]}
+              checked={todo.completed}
               custom
             />
-            </ListGroup.Item>
+            </li>
           </Col>
           <Col>
             <DeleteBtn
