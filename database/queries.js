@@ -37,10 +37,10 @@ const updateTodo = (id, cb) => {
 const removeTodo = (id, cb) => {
   connection.query(`DELETE FROM public."snapTodos" WHERE id = ${id}`, (err, results) => {
     if (err) {
-      console.log('Error deleting from Db');
+      // console.log('Error deleting from Db');
       cb(err, null);
     } else {
-      console.log('Entry deleted from DB');
+      // console.log('Entry deleted from DB');
       cb(null, results);
     }
   });

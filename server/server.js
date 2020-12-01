@@ -25,7 +25,7 @@ app.get('/todos', (req, res) => {
 // INSERT -- one todo
 app.post("/todos", (req, res) => {
   let body = req.body;
-  console.log("body: ", body);
+  // console.log("body: ", body);
   insertNewTodo(body, (err, results) => {
     if (err) {
       console.log('Post query unsuccessful');
