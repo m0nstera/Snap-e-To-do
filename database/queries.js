@@ -3,7 +3,7 @@ connection.connect();
 
 //order by completed or created at time, ascending v descending
 const selectAllTodos = (cb) => {
-  connection.query(`SELECT * FROM public."snapTodos"`, (err, results) => {
+  connection.query(`SELECT * FROM public."snapTodos" order by created_at asc`, (err, results) => {
     if (err) {
       cb(err, null);
     } else {
