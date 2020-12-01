@@ -1,0 +1,35 @@
+h1 {
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+.to-do-container {
+  width: 70%;
+}
+
+.h1-add-item-row {
+  width: 98%;
+}
+
+.add-item-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.li-row {
+  border-bottom:solid;
+  border-width:1px;
+  border-bottom-color: #AAAAAA;
+  width: 62%;
+}
+
+.list-item {
+  font-family: 'Kumbh Sans', sans-serif;
+  list-style-type: none;
+  padding-top: 10px;
+  padding-bottom: 4px;
+}
+
+.delete-btn {
+  display: flex;
+  justify-content: flex-end;
+}
