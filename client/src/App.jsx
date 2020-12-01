@@ -11,14 +11,15 @@ class App extends React.Component {
     super(props);
     this.state = {
       username:'',
+      // validated: false,
       displayMain: false,
-      // displayLogin: true,
       todoList: [],
       item: '',
     };
     this.getTodos = this.getTodos.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.clickLogin = this.clickLogin.bind(this);
+    // this.handleValidate = this.handleValidate.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -41,17 +42,32 @@ class App extends React.Component {
 
   handleUsername(e) {
     this.setState({
-      username: e.target.value})
+      username: e.target.value
+    })
   };
 
   clickLogin() {
     this.setState({
-      displayMain: !this.state.displayMain})
+      displayMain: !this.state.displayMain
+    })
   }
+
+  // handleValidate(e) {
+  //   const email = e.currentTarget;
+  //   // const email = e.target.value;
+  //   if (email.checkValidity() === false) {
+  //     e.preventDefault();
+  //     e.stopPropagation();
+  //   }
+  //   this.setState({
+  //     validated: true
+  //   });
+  // }
 
   handleInput(e) {
     this.setState({
-      item: e.target.value});
+      item: e.target.value
+    });
   };
 
   handleSubmit(e) {
@@ -82,21 +98,22 @@ class App extends React.Component {
   };
 
   render() {
-    const {todoList, displayMain} = this.state;
-
+    const {todoList, displayMain, username} = this.state;
     return (
       <div>
         <Container className="to-do-container">
+          {displayMain === true ? ''
+          :
           <LoginView
             handleUsername={this.handleUsername}
             clickLogin={this.clickLogin}
-          />
+            username={username}
+          />}
           {displayMain === false ? ''
           :
           <>
           <PieChartComp
-            todoList={todoList}
-          />
+            todoList={todoList}/>
           <TodoList
             todoList={todoList}
             getTodos={this.getTodos}
