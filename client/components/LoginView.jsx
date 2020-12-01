@@ -3,7 +3,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
-const LoginView = () => {
+const LoginView = ({handleUsername, clickLogin}) => {
 
   return (
     <div className="login-container">
@@ -11,9 +11,11 @@ const LoginView = () => {
       <FormControl
         placeholder="username"
         aria-label="username"
+        onChange={handleUsername}
         />
     </InputGroup>
-    <Button className="login-btn" variant="outline-secondary">Login</Button>
+    <Button className="login-btn" variant="outline-secondary"
+      onClick={clickLogin}>Login</Button>
     </div>
   )
 };
