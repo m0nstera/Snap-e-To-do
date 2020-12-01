@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import query from '../lib/routes';
 import TodoList from '../components/TodoList.jsx';
+import PieChartComp from '../components/PieChartComp.jsx';
 import Container from 'react-bootstrap/Container';
 
 class App extends React.Component {
@@ -66,11 +67,12 @@ class App extends React.Component {
 
   render() {
     const {todoList} = this.state;
-    // let filterChecked = todoList.filter(todo => todo.completed === true);
 
     return (
       <div>
         <Container className="to-do-container">
+          <PieChartComp
+            todoList={todoList}/>
           <TodoList
             todoList={todoList}
             getTodos={this.getTodos}
