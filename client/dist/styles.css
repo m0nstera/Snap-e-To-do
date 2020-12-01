@@ -33,3 +33,13 @@ h1 {
   display: flex;
   justify-content: flex-end;
 }
+
+.pie-heading {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 18px;
+}
+
+.pie-chart {
+  display: flex;
+  justify-content: start;
+}
