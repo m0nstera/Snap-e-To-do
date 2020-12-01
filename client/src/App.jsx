@@ -10,13 +10,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // username:'',
+      username:'',
+      displayMain: false,
+      // displayLogin: true,
       todoList: [],
       item: '',
     };
     this.getTodos = this.getTodos.bind(this);
-    // this.handleUsername = this.handleUsername.bind(this);
-    // this.clickLogin = this.clickLogin.bind(this);
+    this.handleUsername = this.handleUsername.bind(this);
+    this.clickLogin = this.clickLogin.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -37,14 +39,19 @@ class App extends React.Component {
     });
   };
 
-  // handleUsername(e) {
-  //   this.setState({username: e.target.value})
-  // };
+  handleUsername(e) {
+    this.setState({
+      username: e.target.value})
+  };
 
-  // clickLogin() {}
+  clickLogin() {
+    this.setState({
+      displayMain: !this.state.displayMain})
+  }
 
   handleInput(e) {
-    this.setState({item: e.target.value});
+    this.setState({
+      item: e.target.value});
   };
 
   handleSubmit(e) {
@@ -75,11 +82,21 @@ class App extends React.Component {
   };
 
   render() {
-    const {todoList} = this.state;
+    const {todoList, displayMain} = this.state;
+
     return (
       <div>
         <Container className="to-do-container">
-          <LoginView/>
+          <LoginView
+            handleUsername={this.handleUsername}
+            clickLogin={this.clickLogin}
+          />
+          {displayMain === false ? ''
+          :
+          <>
+          <PieChartComp
+            todoList={todoList}
+          />
           <TodoList
             todoList={todoList}
             getTodos={this.getTodos}
@@ -87,9 +104,7 @@ class App extends React.Component {
             handleSubmit={this.handleSubmit}
             handleDelete={this.handleDelete}
             handleComplete={this.handleComplete}
-          />
-          <PieChartComp
-            todoList={todoList}/>
+          /></>}
         </Container>
       </div>
     );
