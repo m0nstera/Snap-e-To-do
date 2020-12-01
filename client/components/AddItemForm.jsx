@@ -16,8 +16,7 @@ const AddItemForm = ({onHide, getTodos, handleInput, handleSubmit}) => {
           </Col>
           <Button variant="outline-secondary"
           type="submit"
-          onClick={handleSubmit}
-          // onClick={(e) => { onHide; handleSubmit}}
+          onClick={(e) => { onHide(); handleSubmit(e)}}
           >
             Submit
           </Button>
