@@ -12,11 +12,11 @@ const AddItemForm = ({onHide, getTodos, handleInput, handleSubmit}) => {
         <Form.Row>
           <Col>
             <Form.Control size="lg" type="text" placeholder="To-do Item"
-            onChange={handleInput}/>
+              onChange={handleInput}/>
           </Col>
           <Button variant="outline-secondary"
-          type="submit"
-          onClick={(e) => { onHide(); handleSubmit(e)}}
+            type="submit"
+            onClick={(e) => { onHide(); handleSubmit(e)}}
           >
             Submit
           </Button>

@@ -2,10 +2,6 @@ h1 {
   font-family: 'Kumbh Sans', sans-serif;
 }
 
-.to-do-container {
-  width: 70%;
-}
-
 .login-container {
   display: flex;
   flex-direction: column;
@@ -14,12 +10,17 @@ h1 {
 }
 
 .login-form {
-  width: 50% !important;
+  width: 40% !important;
   padding-bottom: 15px;
+}
+
+.to-do-container {
+  width: 70%;
 }
 
 .h1-add-item-row {
   width: 98%;
+  padding-top: 10px;
 }
 
 .add-item-btn {
@@ -49,7 +50,7 @@ h1 {
 .pie-heading {
   font-family: 'Kumbh Sans', sans-serif;
   font-size: 18px;
-  padding-top: 10px;
+  padding-top: 15px;
   padding-left: 15px;
 }
 
