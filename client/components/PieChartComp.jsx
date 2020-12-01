@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import { PieChart } from 'react-minimal-pie-chart';
+import Container from 'react-bootstrap/Container';
 
 const PieChartComp = ({todoList}) => {
   // console.log("PIE", todoList);
@@ -17,7 +18,7 @@ const PieChartComp = ({todoList}) => {
   };
 
   return (
-    <div>
+    <div className="pie-container">
       <Row>
         <h4 className="pie-heading">
           Complete vs. incomplete tasks
@@ -25,6 +26,7 @@ const PieChartComp = ({todoList}) => {
       </Row>
       <Row className="pie-chart">
         <PieChart
+        className="pie-chart"
         data={mappedPie}
         lineWidth={65}
         paddingAngle={5}

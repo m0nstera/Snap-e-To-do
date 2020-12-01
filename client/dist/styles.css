@@ -37,9 +37,13 @@ h1 {
 .pie-heading {
   font-family: 'Kumbh Sans', sans-serif;
   font-size: 18px;
+  padding-top: 10px;
+  padding-left: 15px;
 }
 
 .pie-chart {
-  display: flex;
-  justify-content: start;
+  /* display: flex;
+  justify-content: left; */
+  float: left;
+  padding-bottom: 10px;
 }
