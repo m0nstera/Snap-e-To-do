@@ -9,7 +9,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       todoList: [],
-      completed: [],
       item: '',
     };
     this.getTodos = this.getTodos.bind(this);
@@ -40,7 +39,6 @@ class App extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const item = this.state.item;
-    console.log("item: ", item);
     query.postTodo({item: item})
       .then(res => res)
       .then(this.getTodos())
@@ -50,7 +48,6 @@ class App extends React.Component {
   handleDelete(e) {
     e.preventDefault();
     const id = e.target.id;
-    console.log('APP ID: ', id);
     query.deleteTodo(id)
       .then(res => res)
       .then(this.getTodos())
@@ -60,7 +57,7 @@ class App extends React.Component {
   handleComplete(e) {
     e.preventDefault();
     const id = e.target.id;
-    console.log('APP ID', id);
+    // console.log('APP ID', id);
     query.putTodo(id)
       .then(res => res)
       .then(this.getTodos())
@@ -68,7 +65,9 @@ class App extends React.Component {
   };
 
   render() {
-    const {todoList,} = this.state;
+    const {todoList} = this.state;
+    // let filterChecked = todoList.filter(todo => todo.completed === true);
+
     return (
       <div>
         <Container className="to-do-container">
@@ -78,7 +77,8 @@ class App extends React.Component {
             handleInput={this.handleInput}
             handleSubmit={this.handleSubmit}
             handleDelete={this.handleDelete}
-            handleComplete={this.handleComplete}/>
+            handleComplete={this.handleComplete}
+          />
         </Container>
       </div>
     );
