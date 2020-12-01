@@ -4,8 +4,11 @@ import Button from 'react-bootstrap/Button'
 const DeleteBtn = ({handleDelete, id}) => {
 
   return (
-    <div>
-      <Button type="button" variant="light"
+
+    <div className="delete-btn">
+      <Button className="delete-btn"
+      type="button"
+      variant="outline-light"
       onClick={handleDelete}
       id={id}>
         🗑️
