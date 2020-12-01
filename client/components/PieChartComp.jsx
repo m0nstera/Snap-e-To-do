@@ -1,10 +1,8 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import { PieChart } from 'react-minimal-pie-chart';
-import Container from 'react-bootstrap/Container';
 
 const PieChartComp = ({todoList}) => {
-  // console.log("PIE", todoList);
   // const filterTrue = todoList.map((todo, i) => todo.completed === true);
   // const filterFalse = todoList.map((todo, i) => todo.completed === false);
   const mappedPie = todoList.map((todo, i) =>
@@ -18,7 +16,7 @@ const PieChartComp = ({todoList}) => {
   };
 
   return (
-    <div className="pie-container">
+    <div>
       <Row>
         <h4 className="pie-heading">
           Complete vs. incomplete tasks
@@ -26,16 +24,16 @@ const PieChartComp = ({todoList}) => {
       </Row>
       <Row className="pie-chart">
         <PieChart
-        className="pie-chart"
-        data={mappedPie}
-        lineWidth={65}
-        paddingAngle={5}
-        label={(data) => data.dataEntry.title}
-        labelPosition={65}
-        labelStyle={{
-          ...defaultLabelStyle,
-        }}
-        style={{ height: '130px' }}
+          className="pie-chart"
+          data={mappedPie}
+          lineWidth={65}
+          paddingAngle={5}
+          label={(data) => data.dataEntry.title}
+          labelPosition={65}
+          labelStyle={{
+            ...defaultLabelStyle,
+          }}
+          style={{ height: '130px' }}
         />
       </Row>
     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import query from '../lib/routes';
+import LoginView from '../components/LoginView.jsx';
 import TodoList from '../components/TodoList.jsx';
 import PieChartComp from '../components/PieChartComp.jsx';
 import Container from 'react-bootstrap/Container';
@@ -9,10 +10,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      // username:'',
       todoList: [],
       item: '',
     };
     this.getTodos = this.getTodos.bind(this);
+    // this.handleUsername = this.handleUsername.bind(this);
+    // this.clickLogin = this.clickLogin.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -32,6 +36,12 @@ class App extends React.Component {
       }
     });
   };
+
+  // handleUsername(e) {
+  //   this.setState({username: e.target.value})
+  // };
+
+  // clickLogin() {}
 
   handleInput(e) {
     this.setState({item: e.target.value});
@@ -58,7 +68,6 @@ class App extends React.Component {
   handleComplete(e) {
     e.preventDefault();
     const id = e.target.id;
-    // console.log('APP ID', id);
     query.putTodo(id)
       .then(res => res)
       .then(this.getTodos())
@@ -67,12 +76,10 @@ class App extends React.Component {
 
   render() {
     const {todoList} = this.state;
-
     return (
       <div>
         <Container className="to-do-container">
-          <PieChartComp
-            todoList={todoList}/>
+          <LoginView/>
           <TodoList
             todoList={todoList}
             getTodos={this.getTodos}
@@ -81,6 +88,8 @@ class App extends React.Component {
             handleDelete={this.handleDelete}
             handleComplete={this.handleComplete}
           />
+          <PieChartComp
+            todoList={todoList}/>
         </Container>
       </div>
     );
