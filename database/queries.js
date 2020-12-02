@@ -15,10 +15,10 @@ const selectAllTodos = (cb) => {
 const insertNewTodo = (body, cb) => {
   connection.query(`INSERT INTO public."snapTodos"(item) VALUES ('${body.item}');`, (err, results) => {
     if (err) {
-      console.log('Error posting to DB');
+      // console.log('Error posting to DB');
       cb(err, null);
     } else {
-      console.log('Success posting todo to DB');
+      // console.log('Success posting todo to DB');
       cb(null, results);
     }
   });
