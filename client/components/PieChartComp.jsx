@@ -6,13 +6,13 @@ const PieChartComp = ({todoList}) => {
   const filterTrue = todoList.filter((todo, i) => todo.completed === true);
   const filterFalse = todoList.filter((todo, i) => todo.completed === false);
   const pieData = [
-    { title: 'Complete', value: filterTrue.length, color: '#E38627' },
-    { title: 'Incomplete', value: filterFalse.length, color: '#6A2135' },
+    { title: 'Complete', value: filterTrue.length, color: '#C6C6C6' },
+    { title: 'Incomplete', value: filterFalse.length, color: '#303030' },
   ];
 
   const defaultLabelStyle = {
     fontSize: '10px',
-    fontFamily: 'sans-serif',
+    fontFamily: 'Kumbh Sans'.
   };
 
   return (
