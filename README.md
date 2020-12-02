@@ -12,7 +12,12 @@ Login to your personal to-do list. Add Items, update items as complete. Visualiz
 
 
 ### $ npm start
-
+```bash
+cd server/ && nodemon server.js
+```
 
 
 ### $ npm run build
+```bash
+webpack --watch
+```
