@@ -1,10 +1,10 @@
 import React from 'react';
-import Row from 'react-bootstrap/Row';
 import { PieChart } from 'react-minimal-pie-chart';
+import Row from 'react-bootstrap/Row';
 
 const PieChartComp = ({todoList}) => {
-  // const filterTrue = todoList.map((todo, i) => todo.completed === true);
-  // const filterFalse = todoList.map((todo, i) => todo.completed === false);
+  // const filterTrue = todoList.filter((todo, i) => todo.completed === true);
+  // const filterFalse = todoList.filter((todo, i) => todo.completed === false);
   const mappedPie = todoList.map((todo, i) =>
   todo.completed === true
   ? {title: 'Complete', value: todo.completed === true, color: '#E38627'}

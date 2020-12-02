@@ -27,8 +27,8 @@ const Todo = ({todo, handleDelete, handleComplete}) => {
           </Col>
           <Col>
             <DeleteBtn
-            handleDelete={handleDelete}
-            id={todo.id}/>
+              handleDelete={handleDelete}
+              id={todo.id}/>
           </Col>
         </Row>
     </div>
