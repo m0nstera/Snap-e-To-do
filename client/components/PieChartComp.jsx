@@ -12,7 +12,7 @@ const PieChartComp = ({todoList}) => {
 
   const defaultLabelStyle = {
     fontSize: '10px',
-    fontFamily: 'Kumbh Sans'.
+    fontFamily: 'Kumbh Sans'
   };
 
   return (
