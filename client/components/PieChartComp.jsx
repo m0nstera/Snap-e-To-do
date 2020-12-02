@@ -6,8 +6,8 @@ const PieChartComp = ({todoList}) => {
   const filterTrue = todoList.filter((todo, i) => todo.completed === true);
   const filterFalse = todoList.filter((todo, i) => todo.completed === false);
   const pieData = [
-    { title: 'Complete', value: filterTrue.length, color: '#C6C6C6' },
-    { title: 'Incomplete', value: filterFalse.length, color: '#303030' },
+    { title: 'Complete', value: filterTrue.length, color: '#5478e4' },
+    { title: 'Incomplete', value: filterFalse.length, color: '#c6d2f6' },
   ];
 
   const defaultLabelStyle = {
@@ -27,9 +27,8 @@ const PieChartComp = ({todoList}) => {
           className="pie-chart"
           data={pieData}
           lineWidth={65}
-          paddingAngle={5}
           label={(data) => data.dataEntry.title}
-          labelPosition={65}
+          labelPosition={105}
           labelStyle={{
             ...defaultLabelStyle,
           }}
