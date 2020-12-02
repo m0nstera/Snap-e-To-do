@@ -3,12 +3,13 @@ import Row from 'react-bootstrap/Row';
 import { PieChart } from 'react-minimal-pie-chart';
 
 const PieChartComp = ({todoList}) => {
-  // const filterTrue = todoList.map((todo, i) => todo.completed === true);
-  // const filterFalse = todoList.map((todo, i) => todo.completed === false);
-  const mappedPie = todoList.map((todo, i) =>
-  todo.completed === true
-  ? {title: 'Complete', value: todo.completed === true, color: '#E38627'}
-  : {title: 'Incomplete', value: todo.completed === false, color: '#6A2135'});
+  const filterTrue = todoList.map((todo, i) => todo.completed === true);
+  const filterFalse = todoList.map((todo, i) => todo.completed === false);
+  const mappedPie = todoList.map((todo, i) => [
+      {title: 'Complete', value: filterTrue.length === true, color: '#303030'},
+      {title: 'Incomplete', value: filterFalse.length === false, color: '#C6C6C6'}
+    ]
+  );
 
   const defaultLabelStyle = {
     fontSize: '10px',
