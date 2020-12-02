@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -11,12 +11,13 @@ const AddItemForm = ({onHide, getTodos, handleInput, handleSubmit}) => {
       <Form>
         <Form.Row>
           <Col>
-            <Form.Control size="lg" type="text" placeholder="To-do Item"
-            onChange={handleInput}/>
+            <Form.Control size="lg" type="text"
+              placeholder="To-do Item"
+              onChange={handleInput}/>
           </Col>
           <Button variant="outline-secondary"
-          type="submit"
-          onClick={(e) => { onHide(); handleSubmit(e)}}
+            type="submit"
+            onClick={(e) => { onHide(); handleSubmit(e) }}
           >
             Submit
           </Button>

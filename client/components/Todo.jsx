@@ -1,12 +1,10 @@
-import React, {useState}  from 'react';
-import query from '../lib/routes';
+import React from 'react';
 import DeleteBtn from './DeleteBtn.jsx';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 const Todo = ({todo, handleDelete, handleComplete}) => {
-
 
   return (
     <div>

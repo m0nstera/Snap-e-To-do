@@ -2,12 +2,30 @@ h1 {
   font-family: 'Kumbh Sans', sans-serif;
 }
 
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30%;
+
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+.login-form {
+  width: 40% !important;
+  padding-bottom: 15px;
+}
+
 .to-do-container {
   width: 70%;
 }
 
 .h1-add-item-row {
   width: 98%;
+  padding-top: 10px;
 }
 
 .add-item-btn {
@@ -32,4 +50,18 @@ h1 {
 .delete-btn {
   display: flex;
   justify-content: flex-end;
+}
+
+.pie-heading {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 18px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.pie-chart {
+  /* display: flex;
+  justify-content: left; */
+  float: left;
+  padding-bottom: 10px;
 }

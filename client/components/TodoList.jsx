@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Todo from './Todo.jsx';
 import AddItemBtnModal from './AddItemBtnModal.jsx';
 import Container from 'react-bootstrap/Container';
