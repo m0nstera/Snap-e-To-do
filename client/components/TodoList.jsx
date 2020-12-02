@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Todo from './Todo.jsx';
 import AddItemBtnModal from './AddItemBtnModal.jsx';
 import Container from 'react-bootstrap/Container';
@@ -15,7 +15,7 @@ const TodoList = ({todoList, getTodos, handleInput, handleSubmit, handleDelete, 
     />);
 
   return (
-    <div>
+    <div className="todo-list-component">
       <Row
         className="h1-add-item-row"
         xs={12} md={12} lg={12}>
