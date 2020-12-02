@@ -1,17 +1,17 @@
 import React from 'react';
-import axios from 'axios';
 import query from '../lib/routes';
 import LoginView from '../components/LoginView.jsx';
 import TodoList from '../components/TodoList.jsx';
 import PieChartComp from '../components/PieChartComp.jsx';
+// import LineChartComp from '../components/LineChartComp.jsx';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username:'',
-      // validated: false,
       displayMain: false,
       todoList: [],
       item: '',
@@ -19,7 +19,6 @@ class App extends React.Component {
     this.getTodos = this.getTodos.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.clickLogin = this.clickLogin.bind(this);
-    // this.handleValidate = this.handleValidate.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -52,18 +51,6 @@ class App extends React.Component {
     })
   }
 
-  // handleValidate(e) {
-  //   const email = e.currentTarget;
-  //   // const email = e.target.value;
-  //   if (email.checkValidity() === false) {
-  //     e.preventDefault();
-  //     e.stopPropagation();
-  //   }
-  //   this.setState({
-  //     validated: true
-  //   });
-  // }
-
   handleInput(e) {
     this.setState({
       item: e.target.value
@@ -76,7 +63,7 @@ class App extends React.Component {
     query.postTodo({item: item})
       .then(res => res)
       .then(this.getTodos())
-      .catch(err => console.log('Error: ', err));
+      .catch(err => console.log('Error submitting: ', err));
   };
 
   handleDelete(e) {
@@ -98,22 +85,25 @@ class App extends React.Component {
   };
 
   render() {
-    const {todoList, displayMain, username} = this.state;
+    const {username, displayMain, todoList} = this.state;
     return (
       <div>
         <Container className="to-do-container">
           {displayMain === true ? ''
           :
           <LoginView
+            username={username}
             handleUsername={this.handleUsername}
             clickLogin={this.clickLogin}
-            username={username}
           />}
           {displayMain === false ? ''
           :
           <>
+          <Button className="logout-btn" variant="outline-secondary"
+            onClick={this.clickLogin}>Logout</Button>
           <PieChartComp
             todoList={todoList}/>
+          {/* <LineChartComp/> */}
           <TodoList
             todoList={todoList}
             getTodos={this.getTodos}
