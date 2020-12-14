@@ -3,7 +3,7 @@ import query from '../lib/routes';
 import LoginView from '../components/LoginView.jsx';
 import TodoList from '../components/TodoList.jsx';
 import PieChartComp from '../components/PieChartComp.jsx';
-// import LineChartComp from '../components/LineChartComp.jsx';
+import LineChartComp from '../components/LineChartComp.jsx';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
@@ -102,8 +102,9 @@ class App extends React.Component {
           <Button className="logout-btn" variant="outline-secondary"
             onClick={this.clickLogin}>Logout</Button>
           <PieChartComp
-            todoList={todoList}/>
-          {/* <LineChartComp/> */}
+            todoList={todoList}
+          />
+          <LineChartComp />
           <TodoList
             todoList={todoList}
             getTodos={this.getTodos}
